@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/layout.xhtml">
+
+
+    <ui:define name="panel">
+        <div style="  border: 2px solid #e5e5e5; 
+             -webkit-border-radius: 8px;
+             -moz-border-radius: 8px;
+             border-radius: 8px;
+             -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.05);
+             -moz-box-shadow: 0 2px 2px rgba(0,0,0,.05);
+             box-shadow: 0 1px 2px rgba(0,0,0,.05);
+             background-color: #ffffff;  width: 58%; 
+             padding-left: 2%">
+            
+            <h:form id="formPessoa">
+                <h3 style="color: #9999ff">Cadastro de Clientes</h3>
+                <p:fieldset style="width: 80%">
+                    <h:panelGrid columns="2" cellpadding="2" >
+                        <h:outputLabel value="CPF:" for="cpfInput"/>
+                        <h:outputLabel value="Nome:" for="nomeInput"   />
+                        <p:inputMask id="cpfInput"   mask="999.999.999-99" required="true" style="width: 100px;"  value="#{pessoaService.pessoa.cpf}"/>
+                        <p:inputText  id="nomeInput" style="width: 200%;" value="#{pessoaService.pessoa.nome}" required="true" onkeyup="retirarAcento(this);
+                                notEspecialSomLetras(this);
+                                Maiuscula(this);"  />
+                    </h:panelGrid>
+                    <h:panelGrid columns="4" cellpadding="4" >
+                        <h:outputLabel value="RG:" />
+                        <h:outputLabel value="Nascimento" />
+                        <h:outputLabel value="Sexo" />
+                        <h:outputLabel value="Estado Civil" />
+                        <p:inputText style="width: 100px;" value="#{pessoaService.pessoa.rg}"   />
+                        <p:inputMask mask="99/99/9999" styleClass="input-small"  />
+                        <p:selectOneMenu style="width: 120px"  >
+                            <f:selectItem itemLabel="Masculino" itemValue="1" />
+                            <f:selectItem itemLabel="Feminino" itemValue="2" />
+                        </p:selectOneMenu>
+                        <p:selectOneMenu style="width: 130px"  >
+                            <f:selectItem itemLabel="Solteiro(a)" itemValue="1" />
+                            <f:selectItem itemLabel="Casado(a)" itemValue="2" />
+                            <f:selectItem itemLabel="Divorciado(a)" itemValue="3" />
+                            <f:selectItem itemLabel="Viuvo(a)" itemValue="4" />
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                    <h:panelGrid columns="3" cellpadding="2">  
+                        <h:outputLabel value="Telefone:" />
+                        <h:outputLabel value="Celular:" />
+                        <h:outputLabel value="Recado:" />
+                        <p:inputMask mask="(99)9999-9999" styleClass="input-medium" required="true" value="#{pessoaService.pessoa.telefonePrincipal}" />
+                        <p:inputMask mask="(99)9999-9999" styleClass="input-medium" value="#{pessoaService.pessoa.telefoneSecundario}" />
+                        <p:inputMask mask="(99)9999-9999" styleClass="input-medium" value="#{pessoaService.pessoa.telefoneRecado}" />
+                    </h:panelGrid>
+                    <h:panelGrid columns="2" cellpadding="2">         
+                        <h:outputLabel value="E-mail Pricipal:" />
+                        <h:outputLabel value="E-mail Secundário:" />
+                        <p:inputText  style="width: 232px" value="#{pessoaService.pessoa.email}"  />
+                        <p:inputText  style="width: 232px"    />
+                    </h:panelGrid>
+                    <h:panelGrid columns="3" cellpadding="4">
+                        <h:outputLabel value="Formação" />
+                        <h:outputLabel value="Profissão" />
+                        <h:outputLabel value="Renda" />
+                        <p:selectOneMenu style="width: 180px" >
+                            <f:selectItem itemLabel="Superior Completo" itemValue="" noSelectionOption="true" />
+                            <f:selectItem itemLabel="Médio completo" itemValue="1" />
+                            <f:selectItem itemLabel="Funtamental completo " itemValue="2" />
+                            <f:selectItem itemLabel="Analfabeto Funcional" itemValue="3" />
+                        </p:selectOneMenu>
+                        <p:inputText style="width: 180px"  />
+                        <p:inputText styleClass="input-small" value="#{pessoaService.pessoa.rg}"   />
+                    </h:panelGrid>
+                </p:fieldset>
+                <br/>
+                <p:fieldset  style="width: 80%">
+                    <p:outputPanel id="outPanelEnd">
+                        <h:panelGrid columns="2" cellpadding="3" >
+                            <h:outputLabel value="CEP:"  />
+                            <h:outputLabel value="Logradouro:" />
+                            <p:inputMask id="idCep" title="Digite um cep válido " required="true"  value="#{pessoaService.buscaCep}" 
+                                         mask="99999999" size="10" styleClass="input-small"   >
+                                <p:tooltip for="idCep"  showEvent="focus" hideEvent="blur" />  
+                                <p:ajax listener="#{pessoaService.pesquisarCEP()}"  update="outPanelEnd" />
+
+                            </p:inputMask> 
+                            <p:inputText style="width: 200%;" value="#{pessoaService.rua.nome}"  readonly="true" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="2" >
+                            <h:outputLabel value="Estado:" />
+                            <h:outputLabel value="Cidade:" />
+                            <h:outputLabel value="Bairro:"    />
+                            <p:inputText  value="#{pessoaService.rua.bairro.cidade.estado.sigla}" styleClass="input-mini" readonly="true"  />
+                            <p:inputText  value="#{pessoaService.rua.bairro.cidade.nome}"  readonly="true"  />
+                            <p:inputText  value="#{pessoaService.rua.bairro.nome}" readonly="true" style="width: 98%" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="3" cellpadding="2" >
+                            <h:outputLabel value="Complemento:"  />
+                            <h:outputLabel value="Número:"  />
+                            <h:outputLabel value="Tipo:" />
+                            <p:inputText style="width: 280px;" value="#{pessoaService.endereco.complemento}" />
+                            <p:inputText styleClass="input-mini" value="#{pessoaService.endereco.numero}"  />
+                            <p:selectOneMenu style="width: 120px" >
+                                <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="Residêncial" itemValue="1" />
+                                <f:selectItem itemLabel="Comercial" itemValue="2" />
+                                <f:selectItem itemLabel="Outros" itemValue="3" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                    </p:outputPanel>
+                </p:fieldset>
+                <br/>
+                <p:commandButton value="Confirmar" icon="ui-icon-circle-check"  action="#{pessoaService.salvarPessoa()}"   />
+                <div style="float: right; padding-right: 5%">
+                    <p:commandButton value="Cancelar"  icon=" ui-icon-closethick" action="#{pessoaService.salvarPessoa()}"  />
+                </div>
+            </h:form> 
+        </div>
+    </ui:define>
+</ui:composition>

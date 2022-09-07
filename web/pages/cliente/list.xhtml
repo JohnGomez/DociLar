@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/layout.xhtml">
+
+
+
+
+    <ui:define name="panel">
+        <div style="  border: 2px solid #e5e5e5; 
+             -webkit-border-radius: 8px;
+             -moz-border-radius: 8px;
+             border-radius: 8px;
+             -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.05);
+             -moz-box-shadow: 0 2px 2px rgba(0,0,0,.05);
+             box-shadow: 0 1px 2px rgba(0,0,0,.05);
+             background-color: #ffffff;  width:100%; 
+             padding-left: ">
+            <h:form id="listPessoas">
+                <div style="float: left">
+                    <h:panelGrid columns="2" >
+                        <p:inputText styleClass="input-xlarge" value="#{pessoaService.filtro}"/>
+                        <h:commandButton styleClass="btn btn-primary"  value="Buscar" action="#{pessoaService.buscarPessoas}"   />
+                    </h:panelGrid>
+                </div>
+                <div style="float: right">
+                    <p:commandButton styleClass="btn btn-success btn-small"  action="#{pessoaService.goToForm()}" value="Novo Cliente" />
+                </div>
+
+
+                <p:dataTable style="font-size: x-small" var="c" value="#{pessoaService.pessoas}" 
+                             emptyMessage="Nenhuma registro Encontrado" id="tableCliente"  >
+                    <p:column headerText="Nome:">
+                        <h:outputText value="#{c.nome}" />
+                    </p:column>
+
+                    <p:column headerText="E-mail:">
+                        <h:outputText value="#{c.email}}" />
+                    </p:column>
+
+                    <p:column headerText="Telefone:">
+                        <h:outputText value="#{c.telefonePrincipal}" />
+                    </p:column>
+
+                    <p:column headerText="CPF">
+                        <h:outputText value="#{c.cpf}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo:">
+                        <h:outputText  />
+                    </p:column>
+
+                    <p:column headerText="Ações:">
+                        <h:outputText  />
+                    </p:column>
+                </p:dataTable>
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+

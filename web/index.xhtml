@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>Bem vindo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+
+        <style type="text/css">
+            body {
+                padding-top: 150px;
+                padding-bottom: 40px;
+                background-color: cornflowerblue;
+             //   background-image: url("resources/img/background3.jpg");
+                background-repeat: repeat;
+                background-position: center;
+            }
+
+            .form-signin {
+                max-width: 300px;
+                padding: 19px 29px 29px;
+                margin: 0 auto 20px;
+                background-color: #fff;
+                border: 2px solid #e5e5e5;
+                -webkit-border-radius: 8px;
+                -moz-border-radius: 8px;
+                border-radius: 8px;
+                -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.05);
+                -moz-box-shadow: 0 2px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            }
+            .form-signin .form-signin-heading,
+            .form-signin .checkbox {
+                margin-bottom: 10px;
+            }
+            .form-signin input[type="text"],
+            .form-signin input[type="password"] {
+                font-size: 16px;
+                height: auto;
+                margin-bottom: 15px;
+                padding: 7px 9px;
+            }
+
+        </style>
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+
+
+    </head>
+    <body>
+        <div styleClass="container">
+            <h:form styleClass="form-signin">
+                <h3 styleClass="form-signin-heading" >Login</h3>
+                <h:outputLabel value="E-mail" />
+                <h:inputText  styleClass="input-block-level" value="#{login.email}" />
+                <h:outputLabel value="Senha" />
+                <h:inputSecret styleClass="input-block-level" value="#{login.senha}" />
+                <h:commandButton styleClass="btn btn-success btn-block btn-large " value="Entrar" action="#{login.validarUsario()}"  />
+            </h:form>
+        </div>
+
+
+        <script src="#{facesContext.externalContext.requestContextPath}/js/jquery.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-transition.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-alert.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-modal.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-dropdown.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-scrollspy.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-tab.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-tooltip.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-popover.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-button.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-collapse.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-carousel.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/js/bootstrap-typeahead.js"></script>
+
+    </body>
+
+
+</html>
+

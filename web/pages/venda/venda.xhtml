@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/layout.xhtml">
+
+    <script src="#{facesContext.externalContext.requestContextPath}/js/geral.js"></script>
+
+    <ui:define name="panel" >
+        <div style=" background: white; border: 3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3988.549702058737!2d-48.4893122!3d-1.4449009!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48e97db77c519%3A0x6b224172e47bf120!2sAvenida+Visconde+de+Souza+Franco!5e0!3m2!1spt-BR!2sbr!4v1402278375514" 
+                    width="400" height="410" frameborder="0" style="border:0"></iframe>
+            <div id="myCarousel" class="carousel slide" style="float: right">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="resources/img/casa.jpg" alt="" width="550" />
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+                <address>
+                    <i class="icon-home"></i><strong>Número de Quartos</strong><br/>
+                    3 <br/>
+                </address>
+
+                <address>
+                    <i class="icon-home"></i><strong>Vagas de garagem</strong><br/>
+                    2 <br/>
+                </address>
+                <address>
+                    <i class="icon-home"></i><strong>Pavimentos</strong><br/>
+                    1 <br/>
+                </address>
+
+                <h:commandButton styleClass="btn btn-primary btn-large" value="Iniciar Venda" />
+            </div><!-- /.carousel -->
+
+            <address>
+                <i class="icon-home"></i><strong>Endereço</strong><br/>
+                Av. Visconde de Souza Franco,Umarizal 550 <br/>
+                Belém,PA 66036-190<br/>
+            </address>
+
+            <address>
+                <i class="icon-home"></i><strong>Valor</strong><br/>
+                R$ 750.000,00 <br/>
+            </address>
+            <address>
+                <i class="icon-home"></i><strong>Suites</strong><br/>
+                1 <br/>
+            </address>
+                
+                <address>
+                <i class="icon-home"></i><strong>Dimenções</strong><br/>
+               10m x 80m <br/>
+            </address>
+
+
+
+
+        </div>
+
+
+    </ui:define>
+</ui:composition>

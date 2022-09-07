@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/sistema_imoveis</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql" >true</property>
+    <property name="hibernate.format_sql">true</property>
+    <mapping class="br.com.sistema.model.Bairro"/>
+    <mapping class="br.com.sistema.model.Casa"/>
+    <mapping class="br.com.sistema.model.Cidade"/>
+    <mapping class="br.com.sistema.model.Corretor"/>
+    <mapping class="br.com.sistema.model.Cliente"/>
+    <mapping class="br.com.sistema.model.Endereco"/>
+    <mapping class="br.com.sistema.model.Estado"/>
+    <mapping class="br.com.sistema.model.Imovel"/>
+    <mapping class="br.com.sistema.model.Pessoa"/>
+    <mapping class="br.com.sistema.model.Predio"/>
+    <mapping class="br.com.sistema.model.Rua"/>
+    <mapping class="br.com.sistema.model.Terreno"/>
+    <mapping class="br.com.sistema.model.Usuario"/>
+  </session-factory>
+</hibernate-configuration>

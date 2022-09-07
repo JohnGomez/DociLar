@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/layout.xhtml">
+
+
+    <ui:define name="panel">
+        <section id="imoveis">
+        <h1 class="lead" >Imovies</h1>
+        <h:form id="listaImoveis">
+            <div style="float: left">
+                <h:panelGrid columns="2" >
+                    <h:inputText styleClass="input-xlarge"/>
+                    <h:commandButton styleClass="btn btn-primary"  value="Buscar" />
+                </h:panelGrid>
+            </div>
+            <div style="float: right">
+                <p:commandButton styleClass="btn btn-success btn-small" onsuccess="cadImovel.show()" value="Novo Imovel" />
+            </div>
+
+
+            <p:dataTable style="font-size: small" >
+                <p:column headerText="Tipo:">
+                    <h:outputText  />
+                </p:column>
+
+                <p:column headerText="Cidade:">
+                    <h:outputText  />
+                </p:column>
+
+                <p:column headerText="Bairro:">
+                    <h:outputText  />
+                </p:column>
+
+                <p:column headerText="Situação">
+                    <h:outputText  />
+                </p:column>
+
+                <p:column headerText="Valor:">
+                    <h:outputText  />
+                </p:column>
+
+                <p:column headerText="Ações:">
+                    <h:outputText  />
+                </p:column>
+            </p:dataTable>
+
+        </h:form>
+
+        <p:dialog widgetVar="cadImovel" header="Novo Imovel" resizable="false"  modal="true" draggable="false" closeOnEscape="true">
+            <h:form>
+                <h:panelGrid columns="2" cellpadding="2" >
+                    <h:outputLabel value="CPF:" />
+                    <h:outputLabel value="Nome:" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-xxlarge" />
+                </h:panelGrid>
+
+                <h:panelGrid columns="4" cellpadding="3">
+                    <h:outputLabel value="RG:" />
+                    <h:outputLabel value="Emissor" />
+                    <h:outputLabel value="Nascimento" />
+                    <h:outputLabel value="Naturalidade" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-large" />
+
+
+                    <h:outputLabel value="Telefone:" />
+                    <h:outputLabel value="Celular:" />
+                    <h:outputLabel value="Recado:" />
+                    <h:outputLabel value="E-mail:" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-large" />
+
+
+                </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="2" >
+                    <h:outputLabel value="CEP:" />
+                    <h:outputLabel value="Logradouro:" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-xxlarge" />
+                </h:panelGrid>
+
+                <h:panelGrid columns="3" cellpadding="3">
+                    <h:outputLabel value="Bairro:" />
+                    <h:outputLabel value="Cidade:" />
+                    <h:outputLabel value="Estado:" />
+                    <h:inputText styleClass="input-medium" />
+                    <h:inputText styleClass="input-large" />
+                    <h:inputText styleClass="input-large" />
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" cellpadding="2" >
+                    <h:outputLabel value="Complemento:" />
+                    <h:outputLabel value="Número:" />
+
+                    <h:inputText styleClass="input-xxlarge" />
+                    <h:inputText styleClass="input-small" />
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" cellpadding="1" >
+                    <h:outputLabel value="Mãe:" />
+                    <h:outputLabel value="Pai:" />
+                    <h:inputText styleClass="input-xlarge" />
+                    <h:inputText styleClass="input-xlarge" />
+                </h:panelGrid>
+
+                <h:panelGrid columns="3" cellpadding="2" >
+                    <h:outputLabel value="Estado Civil:" />
+                    <h:outputLabel value="Profissão:" />
+                    <h:outputLabel value="Renda:" />
+                    <h:inputText styleClass="input-small" />
+                    <h:inputText styleClass="input-xlarge" />
+                    <h:inputText styleClass="input-small" />
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" cellpadding="2" >
+                    <h:commandButton value="Confirmar" styleClass="btn btn-success" />
+                    <h:commandButton value="Cancelar" styleClass="btn btn-danger" />
+                </h:panelGrid>
+
+
+            </h:form>       
+        </p:dialog>
+        </section>
+    </ui:define>
+    
+</ui:composition>
